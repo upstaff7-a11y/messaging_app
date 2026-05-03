@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+    <title>Messenger - Contacts</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/contacts.css"/>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <!-- Top App Bar -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="logo">Messenger</div>
+            <div class="header-actions">
+                <button class="icon-btn" id="cameraBtn">
+                    <span class="material-symbols-outlined">camera_enhance</span>
+                </button>
+                <button class="icon-btn" id="editBtn">
+                    <span class="material-symbols-outlined">edit</span>
+                </button>
+                <div class="avatar" id="avatarBtn">
+                    <span class="material-symbols-outlined">person</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="search-wrapper">
+                <span class="search-icon material-symbols-outlined">search</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="Search directory...">
+            </div>
+            <div class="action-buttons">
+                <button class="action-btn primary" id="newContactBtn">
+                    <span class="material-symbols-outlined">person_add</span>
+                    <span>New Contact</span>
+                </button>
+                <button class="action-btn secondary" id="createGroupBtn">
+                    <span class="material-symbols-outlined">group_add</span>
+                    <span>Create Group</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Contacts Directory -->
+        <div class="contacts-directory" id="contactsDirectory">
+            <div class="loading-state">Loading contacts...</div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation (Mobile) -->
+    <nav class="bottom-nav">
+        <a href="inbox.html" class="nav-item">
+            <span class="material-symbols-outlined">chat_bubble</span>
+            <span>Chats</span>
+        </a>
+        <a href="contacts.html" class="nav-item active">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+            <span>People</span>
+        </a>
+        <a href="#" class="nav-item" id="logoutNavBtn">
+            <span class="material-symbols-outlined">logout</span>
+            <span>Logout</span>
+        </a>
+    </nav>
+
+    <!-- Desktop Sidebar Navigation -->
+    <aside class="desktop-sidebar">
+        <div class="sidebar-menu">
+            <a href="inbox.html" class="sidebar-item">
+                <span class="material-symbols-outlined">chat_bubble</span>
+                <span>Chats</span>
+            </a>
+            <a href="contacts.html" class="sidebar-item active">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+                <span>People</span>
+            </a>
+            <a href="#" class="sidebar-item" id="logoutSidebarBtn">
+                <span class="material-symbols-outlined">logout</span>
+                <span>Logout</span>
+            </a>
+        </div>
+        <div class="sidebar-footer">
+            <div class="connection-status">
+                <p class="status-label">Network Strength</p>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <p class="status-text">Excellent Connection</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification hidden">
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/supabase-config.js"></script>
+    <script src="js/contacts.js"></script>
+</body>
+</html>

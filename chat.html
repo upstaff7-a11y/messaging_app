@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+    <title>Messenger - Chat</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/chat.css"/>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="bg-surface">
+
+  <!-- Chat Header -->
+<header class="chat-header">
+    <div class="header-container">
+        <div class="header-left">
+            <a href="inbox.html" class="back-btn" id="backBtn">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </a>
+            <div class="contact-avatar">
+                <div class="avatar-img">
+                    <span id="avatarInitial" class="avatar-initial">S</span>
+                </div>
+                <div class="online-dot" id="onlineDot"></div>
+            </div>
+            <div class="contact-info">
+                <h2 id="contactName" class="contact-name">Loading...</h2>
+                <p id="contactStatus" class="contact-status">Offline</p>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="icon-btn" id="infoBtn">
+                <span class="material-symbols-outlined">info</span>
+            </button>
+            <button class="icon-btn" id="menuBtn">
+                <span class="material-symbols-outlined">more_vert</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+    <!-- Messages Container -->
+    <main class="chat-main">
+        <div class="messages-container" id="messagesContainer">
+            <!-- Sample Messages -->
+            <div class="message received">
+                <div class="message-bubble">
+                    <p class="message-text">Hey! How are you?</p>
+                    <span class="message-time">10:30 AM</span>
+                </div>
+            </div>
+            <div class="message sent">
+                <div class="message-bubble">
+                    <p class="message-text">I'm good! Thanks for asking. How about you?</p>
+                    <span class="message-time">10:32 AM</span>
+                </div>
+            </div>
+            <div class="message received">
+                <div class="message-bubble">
+                    <p class="message-text">Doing great! Are we still on for the meeting later?</p>
+                    <span class="message-time">10:35 AM</span>
+                </div>
+            </div>
+            <div class="message sent">
+                <div class="message-bubble">
+                    <p class="message-text">Yes, absolutely! See you at 2 PM.</p>
+                    <span class="message-time">10:36 AM</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Message Input -->
+    <footer class="chat-footer">
+        <div class="input-container">
+            <button class="attach-btn" id="attachBtn">
+                <span class="material-symbols-outlined">attach_file</span>
+            </button>
+            <div class="input-wrapper">
+                <input type="text" class="message-input" id="messageInput" placeholder="Type a message..." autocomplete="off">
+                <div class="input-actions">
+                    <button class="emoji-btn" id="emojiBtn">
+                        <span class="material-symbols-outlined">sentiment_satisfied</span>
+                    </button>
+                </div>
+            </div>
+            <button class="send-btn" id="sendBtn">
+                <span class="material-symbols-outlined">send</span>
+            </button>
+        </div>
+    </footer>
+
+    <!-- Desktop Sidebar Navigation -->
+    <aside class="desktop-sidebar">
+        <div class="sidebar-menu">
+            <a href="inbox.html" class="sidebar-item">
+                <span class="material-symbols-outlined">chat_bubble</span>
+                <span>Chats</span>
+            </a>
+            <a href="contacts.html" class="sidebar-item">
+                <span class="material-symbols-outlined">group</span>
+                <span>People</span>
+            </a>
+            <a href="#" class="sidebar-item" id="logoutSidebarBtn">
+                <span class="material-symbols-outlined">logout</span>
+                <span>Logout</span>
+            </a>
+        </div>
+        <div class="sidebar-footer">
+            <div class="connection-status">
+                <p class="status-label">Network Strength</p>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <p class="status-text">Excellent Connection</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Bottom Navigation (Mobile) -->
+    <nav class="bottom-nav">
+        <a href="inbox.html" class="nav-item">
+            <span class="material-symbols-outlined">chat_bubble</span>
+            <span>Chats</span>
+        </a>
+        <a href="contacts.html" class="nav-item">
+            <span class="material-symbols-outlined">group</span>
+            <span>People</span>
+        </a>
+        <a href="#" class="nav-item" id="logoutNavBtn">
+            <span class="material-symbols-outlined">logout</span>
+            <span>Logout</span>
+        </a>
+    </nav>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification hidden">
+        <span id="toastMessage"></span>
+    </div>
+
+    <script src="js/supabase-config.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>

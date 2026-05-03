@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Messenger - Login</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/index.css">
+    
+</head>
+<body class="bg-surface text-on-background">
+    <main class="login-container">
+        <!-- Brand Logo and Identity -->
+        <div class="brand-section">
+            <div class="logo-wrapper">
+                <span class="material-symbols-outlined logo-icon">chat_bubble</span>
+            </div>
+            <h1 class="brand-title">Messenger</h1>
+        </div>
+
+        <!-- Login Card -->
+        <section class="login-card">
+            <div class="card-header">
+                <h2 class="card-title">Welcome Back</h2>
+                <p class="card-subtitle">Please enter your details to sign in.</p>
+            </div>
+
+            <form id="loginForm" class="login-form">
+                <!-- Email Field -->
+                <div class="input-group">
+                    <label class="input-label" for="email">Email address</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon material-symbols-outlined">mail</span>
+                        <input type="email" id="email" name="email" class="input-field" placeholder="name@company.com" required>
+                    </div>
+                </div>
+
+                <!-- Password Field -->
+                <div class="input-group">
+                    <div class="password-header">
+                        <label class="input-label" for="password">Password</label>
+                        <a href="#" id="forgotPassword" class="forgot-link">Forgot password?</a>
+                    </div>
+                    <div class="input-wrapper">
+                        <span class="input-icon material-symbols-outlined">lock</span>
+                        <input type="password" id="password" name="password" class="input-field" placeholder="••••••••" required>
+                    </div>
+                </div>
+
+                <!-- Stay Logged In -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="remember" class="checkbox">
+                    <label for="remember" class="checkbox-label">Stay logged in for 30 days</label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-primary">Log In</button>
+            </form>
+            
+            <!-- Divider -->
+            <div class="divider">
+                <span class="divider-text">OR CONTINUE WITH</span>
+            </div>
+
+            <!-- Social Logins -->
+            <div class="social-grid">
+                <button class="btn-social" id="googleLogin">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2edJS1a4zZoi3Cwklegr2pf7TpuvROXZ0VB09uc1FqS4FY1EeAcveHtf3GnUORHQRv_CFjVqOoyB-5t9MLO7XkgBofi5tZ3h7N0UQaVP1kwqtdPie_lR6aEaaseyfAkuE0WYd9kNfBREEuuzenf2LwaWAV9ZlovGJgOwwpBOR15NaKNIg7RJny4Xr6W_mUlGFNbJZ3snNg6-lF1U3v7ybasDG7yBYdCeM8F0KXALOte9RenTevNeZEHQ-xXUxhKq5j6EgLop3D1d5" alt="Google" class="social-icon">
+                    <span>Google</span>
+                </button>
+                <button class="btn-social" id="appleLogin">
+                    <span class="material-symbols-outlined social-icon-apple">ios</span>
+                    <span>Apple</span>
+                </button>
+            </div>
+        </section>
+        
+        <!-- Footer Link -->
+        <div class="footer-link">
+            <p>Don't have an account? <a href="signup.html" id="showSignup" class="signup-link">Create an account</a></p>
+        </div>
+    </main>
+
+    <!-- Background Decoration -->
+    <div class="bg-decoration">
+        <div class="blob-1"></div>
+        <div class="blob-2"></div>
+    </div>
+
+    <!-- Toast Notification (hidden by default) -->
+    <div id="toast" class="toast-notification hidden">
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- JS Files -->
+    <script type="module" src="js/supabase-config.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

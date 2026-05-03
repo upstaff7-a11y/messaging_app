@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+    <title>Messenger - Chats</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/inbox.css"/>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="bg-background">
+    <!-- TopAppBar -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="logo">Messenger</div>
+            <div class="header-actions">
+                <button class="icon-btn" id="cameraBtn">
+                    <span class="material-symbols-outlined">camera_enhance</span>
+                </button>
+                <button class="icon-btn" id="editBtn">
+                    <span class="material-symbols-outlined">edit</span>
+                </button>
+                <div class="avatar" id="avatarBtn">
+                    <span class="material-symbols-outlined">person</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Desktop Sidebar Navigation -->
+    <aside class="desktop-sidebar">
+        <div class="sidebar-menu">
+            <a href="inbox.html" class="sidebar-item active">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+                <span>Chats</span>
+            </a>
+            <a href="contacts.html" class="sidebar-item">
+                <span class="material-symbols-outlined">group</span>
+                <span>People</span>
+            </a>
+            <a href="#" class="sidebar-item" id="logoutSidebarBtn">
+                <span class="material-symbols-outlined">logout</span>
+                <span>Logout</span>
+            </a>
+        </div>
+        <div class="sidebar-footer">
+            <div class="connection-status">
+                <p class="status-label">Network Strength</p>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <p class="status-text">Excellent Connection</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Layout -->
+    <main class="main-layout">
+        <!-- Sidebar / Inbox List -->
+        <aside class="sidebar">
+            <!-- Search Bar -->
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <span class="search-icon material-symbols-outlined">search</span>
+                    <input class="search-input" placeholder="Search messages" type="text" id="searchInput"/>
+                </div>
+            </div>
+
+            <!-- Conversations List -->
+            <div class="conversations-list" id="conversationsList">
+                <div class="loading-state">Loading conversations...</div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area / Empty State -->
+        <section class="empty-state-container">
+            <div class="empty-state-content">
+                <div class="empty-icon-wrapper">
+                    <span class="material-symbols-outlined empty-icon">chat_bubble</span>
+                </div>
+                <h1 class="empty-title">Your Messages</h1>
+                <p class="empty-subtitle">Select a conversation from the sidebar to start chatting or view previous interactions.</p>
+                <div class="empty-cards">
+                    <div class="info-card">
+                        <span class="material-symbols-outlined info-icon">groups</span>
+                        <h3 class="info-title">Group Chats</h3>
+                        <p class="info-text">Collaborate with your whole team</p>
+                    </div>
+                    <div class="info-card">
+                        <span class="material-symbols-outlined info-icon">archive</span>
+                        <h3 class="info-title">Archived</h3>
+                        <p class="info-text">View your older conversations</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bottom Navigation (Mobile) -->
+    <nav class="bottom-nav">
+        <a href="inbox.html" class="nav-item active">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+            <span>Chats</span>
+        </a>
+        <a href="contacts.html" class="nav-item">
+            <span class="material-symbols-outlined">group</span>
+            <span>People</span>
+        </a>
+        <a href="#" class="nav-item" id="logoutNavBtn">
+            <span class="material-symbols-outlined">logout</span>
+            <span>Logout</span>
+        </a>
+    </nav>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-notification hidden">
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/supabase-config.js"></script>
+    <script src="js/inbox.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Messenger - Create Account</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/signup.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="bg-gradient">
+    <main class="main-container">
+        <div class="form-wrapper">
+            <header class="top-app-bar">
+                <a href="index.html" class="back-button">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </a>
+                <div class="app-title">Connect</div>
+                <div class="help-button">Help</div>
+            </header>
+
+            <div class="glass-card">
+                <div class="brand-section">
+                    <div class="logo-wrapper">
+                        <span class="material-symbols-outlined logo-icon">chat_bubble</span>
+                    </div>
+                    <h1 class="brand-title">Create Account</h1>
+                    <p class="brand-subtitle">Join our secure messaging community today.</p>
+                </div>
+
+                <form id="signupForm" class="signup-form">
+                    <div class="input-group">
+                        <label class="input-label" for="fullName">Full Name</label>
+                        <input type="text" id="fullName" class="input-field" placeholder="Enter your full name">
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label" for="email">Email address</label>
+                        <input type="email" id="email" class="input-field" placeholder="name@company.com">
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label class="input-label" for="password">Password</label>
+                            <input type="password" id="password" class="input-field" placeholder="••••••••">
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label" for="confirmPassword">Confirm</label>
+                            <input type="password" id="confirmPassword" class="input-field" placeholder="••••••••">
+                        </div>
+                    </div>
+
+                    <button type="submit" id="signupBtn" class="btn-primary">
+                        Sign Up
+                    </button>
+                </form>
+
+                <div class="divider">
+                    <span class="divider-text">Or continue with</span>
+                </div>
+
+                <div class="social-grid">
+                    <button id="googleSignup" class="btn-social">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoz7bR0XVu1cm4zgJV-H3yHWfSyUeVYIdRMYd5OP1L-oTX4LjrpocMc4Ti4zw6xt8eITM4OYooBMPfHrckSMAQArUZ2OIaDqdaijpxVEDy2AAeT8PKq-j4PmHAOuabxgM02ijxBm8as_xTDk7U6w4-X3-4uLt-aOzs0-vCVGUXpLmmHWdvs6dV4Xj1WY9ykFf3Jpws3NyZauEmISdmOj_cE7jBDmFbvDSspM-QH978PoJ4tsoxyNINFKl4kBdupK9C_QF71q2EkNHJ" alt="Google" class="social-icon">
+                        <span>Google</span>
+                    </button>
+                    <button id="appleSignup" class="btn-social">
+                        <span class="material-symbols-outlined social-icon-apple">ios</span>
+                        <span>Apple</span>
+                    </button>
+                </div>
+
+                <p class="footer-text">
+                    Already have an account? 
+                    <a href="index.html" class="login-link">Log in</a>
+                </p>
+            </div>
+
+            <footer class="page-footer">
+                <div class="footer-links">
+                    <span>Privacy Policy</span>
+                    <span>•</span>
+                    <span>Terms of Service</span>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <div id="toast" class="toast-notification hidden">
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- LOAD CONFIG FIRST -->
+    <script src="js/supabase-config.js"></script>
+    <!-- THEN SIGNUP LOGIC -->
+    <script src="js/signup.js"></script>
+</body>
+</html>
